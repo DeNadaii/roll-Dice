@@ -1,16 +1,16 @@
 function rollTheDice(){
-    var sides = checkFaces();
-    var randomNumber = Math.floor(Math.random() * sides) + 1;
+    let sides = checkFaces();
+    let randomNumber = Math.floor(Math.random() * sides) + 1;
     return randomNumber;
 };
 
 function printNumber(number) {
-    var diceResult = document.getElementById('diceResult');
+    let diceResult = document.getElementById('diceResult');
     diceResult.innerHTML = number;
 };
 
 function roll(){
-    var rollResult = rollTheDice();
+    let rollResult = rollTheDice();
     printNumber(rollResult);
     
 };
