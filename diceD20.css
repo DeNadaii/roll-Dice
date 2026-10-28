@@ -1,0 +1,138 @@
+/* ==========================================================================
+   CONFIGURAÇÃO E AMBIENTE GLOBAL
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #121214;
+  font-family: system-ui, -apple-system, Arial, sans-serif;
+  perspective: 1500px; /* Cria a profundidade da cena 3D */
+  overflow: hidden;
+}
+
+.scene {
+  width: 200px;
+  height: 173.2px; /* Proporção geométrica real de um triângulo equilátero */
+  margin-bottom: 60px;
+}
+
+.d20 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1.8s cubic-bezier(0.25, 1, 0.5, 1); /* Curva suave de frenagem */
+  transform: rotateX(-20deg) rotateY(20deg);
+}
+
+/* ==========================================================================
+   CONFIGURAÇÃO DE CADA FACE VETORIZADA
+   ========================================================================== */
+.face {
+  position: absolute;
+  width: 200px;
+  height: 173.2px;
+  transform-style: preserve-3d;
+  backface-visibility: hidden; /* Oculta as faces de trás para evitar fantasmas */
+  
+  /* CORE DO AJUSTE: Move o pivô 3D para o baricentro gravitacional do triângulo SVG.
+     Isso impede o desalinhamento ao aplicar rotateZ(180deg). */
+  transform-origin: 50% 66.6667% 0;
+}
+
+/* Estilização do SVG interno */
+.face svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.face polygon {
+  fill: rgba(138, 43, 226, 0.9); /* Cor roxa semitransparente estilo RPG */
+  stroke: rgba(255, 255, 255, 0.45); /* Bordas brancas nítidas */
+  stroke-width: 1.5px;
+  stroke-linejoin: round; /* Junta as quinas das arestas perfeitamente */
+}
+
+.face text {
+  fill: white;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+/* ==========================================================================
+   MAPEAMENTO GEOMÉTRICO DO ICOSAEDRO (CALIBRADO MILIMETRICAMENTE)
+   ========================================================================== */
+
+/* --- CALOTA SUPERIOR (Faces 1 a 5: Pontas apontando para CIMA) --- */
+.f-1  { transform: rotateY(0deg)   rotateX(52.62deg)                  translateZ(105.15px); }
+.f-2  { transform: rotateY(72deg)  rotateX(52.62deg)                  translateZ(105.15px); }
+.f-3  { transform: rotateY(144deg) rotateX(52.62deg)                  translateZ(105.15px); }
+.f-4  { transform: rotateY(216deg) rotateX(52.62deg)                  translateZ(105.15px); }
+.f-5  { transform: rotateY(288deg) rotateX(52.62deg)                  translateZ(105.15px); }
+
+/* --- CALOTA INFERIOR (Faces 6 a 10: Todas INVERTIDAS com ponta para BAIXO) --- */
+.f-6  { transform: rotateY(36deg)  rotateX(127.38deg) rotateZ(180deg) translateZ(105.15px); }
+.f-7  { transform: rotateY(108deg) rotateX(127.38deg) rotateZ(180deg) translateZ(105.15px); }
+.f-8  { transform: rotateY(180deg) rotateX(127.38deg) rotateZ(180deg) translateZ(105.15px); }
+.f-9  { transform: rotateY(252deg) rotateX(127.38deg) rotateZ(180deg) translateZ(105.15px); }
+.f-10 { transform: rotateY(324deg) rotateX(127.38deg) rotateZ(180deg) translateZ(105.15px); }
+
+/* --- CINTURÃO DO MEIO ALTO (Faces 11 a 15: Pontas apontando para CIMA) --- */
+.f-11 { transform: rotateY(36deg)  rotateX(10.81deg)                  translateZ(105.15px); }
+.f-12 { transform: rotateY(108deg) rotateX(10.81deg)                  translateZ(105.15px); }
+.f-13 { transform: rotateY(180deg) rotateX(10.81deg)                  translateZ(105.15px); }
+.f-14 { transform: rotateY(252deg) rotateX(10.81deg)                  translateZ(105.15px); }
+.f-15 { transform: rotateY(324deg) rotateX(10.81deg)                  translateZ(105.15px); }
+
+/* --- CINTURÃO DO MEIO BAIXO (Faces 16 a 20: Todas INVERTIDAS com ponta para BAIXO) --- */
+.f-16 { transform: rotateY(0deg)   rotateX(169.19deg) rotateZ(180deg) translateZ(105.15px); }
+.f-17 { transform: rotateY(72deg)  rotateX(169.19deg) rotateZ(180deg) translateZ(105.15px); }
+.f-18 { transform: rotateY(144deg) rotateX(169.19deg) rotateZ(180deg) translateZ(105.15px); }
+.f-19 { transform: rotateY(216deg) rotateX(169.19deg) rotateZ(180deg) translateZ(105.15px); }
+.f-20 { transform: rotateY(288deg) rotateX(169.19deg) rotateZ(180deg) translateZ(105.15px); }
+
+/* ==========================================================================
+   BOTÃO DE INTERAÇÃO
+   ========================================================================== */
+button {
+  padding: 14px 35px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #8a2be2, #4a00e0);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+  transition: transform 0.1s;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+#result {
+    margin-bottom: 18px;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    min-height: 1.8em;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+

@@ -1,0 +1,207 @@
+:root{
+    --glass: rgba(18, 16, 20, 0.55);
+    --glass-border: rgba(239, 241, 239, 0.18);
+    --text: #f3efe6;
+    --accent: #d8b46a;
+    --radius: 25px;
+}
+
+*{ box-sizing: border-box; }
+
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 1rem;
+}
+
+body{
+    margin: 0;
+    padding-bottom: 2rem;
+    color: var(--text);
+    font-family: "Source Serif 4", Georgia, serif;
+    line-height: 1.6;
+    background-color: #1b1820;
+    background-image: url("./images/hamlet.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1, h2{
+    font-family: "IM Fell English", Georgia, serif;
+    font-weight: 400;
+    text-align: center;
+    color: var(--text);
+    margin: 1rem 0 0.5rem;
+}
+
+h1{ font-size: clamp(1.8rem, 4vw, 2.8rem); padding: 1.5rem 1rem 0; }
+
+a{ color: var(--accent); }
+a:hover{ color: #fff; }
+a:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+/* shared "glass" panels */
+nav, main, article, .box, footer{
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+nav, main, section, footer{
+    width: min(75%, 1100px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* summary nav */
+nav{ padding: 0.5rem 1rem 1rem; margin-top: 1rem; }
+nav h2{ margin-top: 0.5rem; }
+nav ul{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* gallery + info */
+section{
+    display: flex;
+    gap: 20px;
+    margin-top: 1.5rem;
+}
+
+aside{
+    position: relative;
+    flex: 4 1 0;
+    min-height: 420px;
+    overflow: hidden;
+    border-radius: var(--radius);
+    border: 1px solid var(--glass-border);
+    background-color: var(--glass);
+}
+aside h2{
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 2;
+    margin: 0;
+    padding: 0.75rem;
+    background: linear-gradient(rgba(0,0,0,0.6), transparent);
+    pointer-events: none;
+}
+
+/* swipeable carousel */
+.carousel{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+.carousel::-webkit-scrollbar{ display: none; }
+.carousel img{
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    scroll-snap-align: center;
+}
+.carousel:focus-visible{ outline: 2px solid var(--accent); outline-offset: -4px; }
+
+.arrow{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 1px solid var(--glass-border);
+    background: var(--glass);
+    color: var(--text);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+}
+.arrow:hover{ background: rgba(18, 16, 20, 0.85); }
+.arrow:focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; }
+.prev{ left: 0.75rem; }
+.next{ right: 0.75rem; }
+
+article{
+    flex: 1.5 1 0;
+    padding: 0.5rem 1.5rem 1.5rem;
+}
+
+dl{
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.6rem 1.25rem;
+    margin: 0;
+}
+dt{ color: var(--accent); }
+dd{ margin: 0; }
+
+/* backstory */
+.title{ margin-top: 2.5rem; }
+
+main{ padding: 1rem 2rem; }
+main p{
+    text-indent: 3ch;
+    max-width: 75ch;
+    margin: 0 auto 1rem;
+}
+main p + p{ margin-top: 0; }
+
+/* skills */
+.skills{ align-items: stretch; margin-top: 0; }
+.box{
+    flex: 1 1 0;
+    padding: 0.5rem 1.5rem 1.5rem;
+}
+.box ul{ padding-left: 1.25rem; margin: 0; }
+.box li + li{ margin-top: 0.25rem; }
+
+table{
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+th, td{
+    padding: 0.4rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--glass-border);
+}
+th{ color: var(--accent); font-weight: 600; }
+
+footer{
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    font-style: italic;
+}
+
+.sr-only{
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* tablet and phone */
+@media (max-width: 800px){
+    nav, main, section, footer{ width: 92%; }
+    section{ flex-direction: column; }
+    aside{ min-height: 320px; flex: none; }
+    article, .box{ flex: none; }
+    main{ padding: 0.75rem 1.25rem; }
+    nav ul{ gap: 1rem; flex-wrap: wrap; }
+}
+
+@media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ficha | Cão Negro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="./css/index.css" rel="stylesheet">
+    <link href="./css/ficha.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Ficha de Personagem</h1>
+         <nav aria-label="Page sections">
+            <h2>Ficha de Personagem</h2>
+            <ul>
+                <li><a href="./index.html">&#8249; Back to main page</a></li>
+                <li><a href="./dice.html">Roll a dice</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="sheet">
+        <div class="grid">
+            <div class="box">
+                <h2>Atributos</h2>
+                <ul class="attrs">
+                    <li><span>Força</span><b>+1</b></li>
+                    <li><span>Destreza</span><b>+4</b></li>
+                    <li><span>Constituição</span><b>+1</b></li>
+                    <li><span>Inteligência</span><b>+3</b></li>
+                    <li><span>Espírito</span><b>+0</b></li>
+                </ul>
+                <h2>Recursos</h2>
+                <div class="meters">
+                    <label>HP <input type="number" id="hp" min="0"> / 32</label>
+                    <label>PM <input type="number" id="pm" min="0"> / 19</label>
+                    <label>PH <input type="number" id="ph" min="0"> / 6</label>
+                    <label>HP temporário <input type="number" id="hpt" min="0"></label>
+                </div>
+            </div>
+
+            <div class="box wide">
+                <h2>Perícias</h2>
+                <table class="skills-table">
+                    <thead><tr><th scope="col">Perícia</th><th scope="col">Atributo</th><th scope="col">Treinada</th><th scope="col">Total</th></tr></thead>
+                    <tbody id="skills-body"></tbody>
+                </table>
+            </div>
+
+            <div class="box portraits">
+                <img src="./assets/hound_face.png" alt="Retrato de Cão Negro, rosto com chapéu">
+                <img src="./assets/hound_full_body.png" alt="Cão Negro com máscara de médico da peste">
+            </div>
+
+            <div class="box">
+                <h2>Cão Negro</h2>
+                <dl>
+                    <dt>Etnia</dt><dd>Filho de Galis</dd>
+                    <dt>Classe</dt><dd>Mago nvl 6, Arqueiro sec</dd>
+                    <dt>Bônus de perícia</dt><dd>+3</dd>
+                    <dt>CD Mago</dt><dd>14</dd>
+                    <dt>Defesa</dt><dd>14</dd>
+                    <dt>Deslocamento</dt><dd>9 m</dd>
+                    <dt>Dinheiro</dt><dd>79</dd>
+                    <dt>Fundo da party</dt><dd>3</dd>
+                    <dt>Peso</dt><dd>5 / 5</dd>
+                    <dt>Slots / Poções</dt><dd>5 slots · 11 poções máx.</dd>
+                </dl>
+                <p class="note"><strong>Característica de etnia:</strong> bônus na DT em testes de Espírito contra outros Filhos de Galis.</p>
+            </div>
+            
+
+            <div class="box">
+                <h2>Ataques</h2>
+                <table>
+                    <thead><tr><th scope="col">Nome</th><th scope="col">ATQ</th><th scope="col">Dano</th></tr></thead>
+                    <tbody>
+                        <tr><td>Lançar poção</td><td id="bonus_atack">+4</td><td>Dano da poção</td></tr>
+                        <tr><td>Faca de arremesso melhorada</td><td id="bonus_atack">+4</td><td>1d4 + 1 + Destreza</td></tr>
+                        <tr><td>Besta de uma mão</td><td id="bonus_atack">+4</td><td>1d6 + 4 (necrótico)</td></tr>
+                    </tbody>
+                </table>
+                <h2>Habilidades de classe</h2>
+                <table>
+                    <thead><tr><th scope="col">Nome</th><th scope="col">Efeito</th><th scope="col">Custo</th></tr></thead>
+                    <tbody>
+                        <tr><td>Conhecimento alquímico</td><td>+2 em rolagens de Ofício Alquimia</td><td>1 PH</td></tr>
+                        <tr><td>Tiro de precisão</td><td>+2 no ataque de Pontaria</td><td>1 PH</td></tr>
+                        <tr><td>Recuperação arcana</td><td>Recupera mana igual ao bônus de proficiência</td><td>1 PH</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box wide">
+                <h2>Magias</h2>
+                <p class="note">Escolha a magia e clique em <b>Usar</b>: o custo sai dos seus PM.</p>
+                <div class="spells">
+                    <ul id="spell-list" class="spell-list" aria-label="Magias do Alquimista"></ul>
+                    <div id="spell-detail" class="spell-detail" aria-live="polite"></div>
+                </div>
+            </div>
+
+            
+
+            <div class="box">
+                <h2>Equipamento</h2>
+                <table>
+                    <thead><tr><th scope="col">Item</th><th scope="col">Peso</th><th scope="col">Descrição</th></tr></thead>
+                    <tbody>
+                        <tr><td>Roupa preta</td><td>1</td><td></td></tr>
+                        <tr><td>Kit de alquimia</td><td>1</td><td></td></tr>
+                        <tr><td>Kit médico</td><td>1</td><td></td></tr>
+                        <tr><td>Moedas</td><td>1</td><td></td></tr>
+                        <tr><td>Besta</td><td>1</td><td>50 tiros</td></tr>
+                        <tr><td>Kit de ladinagem</td><td></td><td>9 usos</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box">
+                <h2>Itens</h2>
+                <ul>
+                    <li>Faca de cura: 2d4 + 1, cura por cauterização (4 usos diários)</li>
+                    <li>Faca de cura: 1d6, cura por sutura e elimina sangramento (5 usos diários)</li>
+                    <li>Álcool puro</li>
+                    <li>Bloquinho de notas</li>
+                    <li>Kit médico (5 usos)</li>
+                    <li>A moeda</li>
+                    <li>Pingente mago</li>
+                    <li>Poções do mago</li>
+                    <li>Caderno necromante</li>
+                    <li>Esfera de fogo</li>
+                    <li>Frasco do rio Esmeraldina</li>
+                    <li>Esfera de vidro quebrada</li>
+                    <li>Bola com mariposa de fogo</li>
+                    <li>Mandrágora (2/3)</li>
+                    <li>Totem de ave</li>
+                    <li>Joias do Iensen (Cão e Breno)</li>
+                    <li>Vinho</li>
+                    <li>Pingente de madeira (águia)</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer><p>Ficha de Cão Negro. Os valores de HP, PM, PH e as quantidades de magias ficam salvos neste navegador.</p></footer>
+    <script src="./js/ficha.js"></script>
+</body>
+</html>

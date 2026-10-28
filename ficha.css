@@ -1,0 +1,115 @@
+main.sheet{
+    width: min(94%, 1200px);
+    background: none;
+    border: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+.back{ text-align: center; margin: 0.25rem 0 0; }
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+.grid .box{ flex: none; }
+.wide{ grid-column: 1 / -1; }
+.box h2{ margin-top: 0.75rem; }
+
+.box dl{ grid-template-columns: max-content 1fr; }
+.note{ font-size: 0.95rem; text-indent: 0; }
+
+.portraits{
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    align-items: stretch;
+}
+.portraits img{
+    flex: 1 1 0;
+    min-width: 0;
+    width: 50%;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 1px solid var(--glass-border);
+}
+
+.attrs{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+.attrs li{ margin: 0; }
+.attrs span{ display: block; font-size: 0.8rem; color: var(--accent); }
+.attrs b{ font-family: "IM Fell English", Georgia, serif; font-size: 1.8rem; font-weight: 400; }
+
+.meters{ display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.meters input, .spell-detail input{
+    width: 4.5rem;
+    padding: 0.25rem 0.4rem;
+    color: var(--text);
+    background: rgba(255,255,255,0.1);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    font: inherit;
+}
+
+.box table{ width: 100%; }
+.skills-table{ max-width: 640px; }
+.skills-table td:nth-child(3), .skills-table td:nth-child(4){ text-align: center; }
+.skills-table tr.trained td{ color: #fff; font-weight: 600; }
+
+.spells{ display: grid; grid-template-columns: minmax(220px, 1fr) 2fr; gap: 20px; }
+.spell-list{ list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; align-content: start; }
+.spell-list li{ margin: 0 !important; }
+.spell-list button{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    color: var(--text);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+.spell-list button:hover{ background: rgba(255,255,255,0.14); }
+.spell-list button[aria-pressed="true"]{ border-color: var(--accent); background: rgba(216,180,106,0.2); }
+.spell-list .cost{ color: var(--accent); white-space: nowrap; }
+
+.spell-detail{
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    background: rgba(255,255,255,0.05);
+}
+.spell-detail h3{ margin: 0 0 0.5rem; font-family: "IM Fell English", Georgia, serif; font-weight: 400; font-size: 1.5rem; }
+.spell-detail p{ margin: 0.4rem 0; }
+.spell-detail .row{ display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 0.75rem; }
+.use{
+    padding: 0.5rem 1.25rem;
+    color: #1b1820;
+    background: var(--accent);
+    border: 0;
+    border-radius: 999px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+.use:disabled{ opacity: 0.45; cursor: not-allowed; }
+.use:focus-visible, .spell-list button:focus-visible, input:focus-visible{ outline: 2px solid #fff; outline-offset: 2px; }
+.log{ min-height: 1.5rem; font-style: italic; }
+
+@media (max-width: 800px){
+    main.sheet{ width: 94%; }
+    .spells{ grid-template-columns: 1fr; }
+    .attrs{ grid-template-columns: repeat(3, 1fr); }
+}

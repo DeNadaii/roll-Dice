@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dado D20 Perfeito</title>
+  <link rel="stylesheet" href="diceD20.css">
+</head>
+<body>
+
+  <div class="scene">
+    <div class="d20" id="d20">
+      <!-- Usando SVGs para criar triângulos perfeitos que não quebram -->
+      <div class="face f-1"><svg viewBox="0 0 100 86.6"><polygon points="50,0 0,86.6 100,86.6"/><text x="50" y="60" text-anchor="middle">1</text></svg></div>
+      <div class="face f-2"><svg viewBox="0 0 100 86.6"><polygon points="50,0 0,86.6 100,86.6"/><text x="50" y="60" text-anchor="middle">2</text></svg></div>
+      <div class="face f-3"><svg viewBox="0 0 100 86.6"><polygon points="50,0 0,86.6 100,86.6"/><text x="50" y="60" text-anchor="middle">3</text></svg></div>
+      <div class="face f-4"><svg viewBox="0 0 100 86.6"><polygon points="50,0 0,86.6 100,86.6"/><text x="50" y="60" text-anchor="middle">4</text></svg></div>
+      <div class="face f-5"><svg viewBox="0 0 100 86.6"><polygon points="50,0 0,86.6 100,86.6"/><text x="50" y="60" text-anchor="middle">5</text></svg></div>
+      <div class="face f-6"><svg viewBox="0 0 100 86.6"><polygon points="50,0 0,86.6 100,86.6"/><text x="50" y="60" text-anchor="middle">6</text></svg></div>
+      <div class="face f-7"><svg viewBox="0 0 100 86.6"><polygon points="50,0 0,86.6 100,86.6"/><text x="50" y="60" text-anchor="middle">7</text></svg></div>
+      <div class="face f-8"><svg viewBox="0 0 100 86.6"><polygon points="50,0 0,86.6 100,86.6"/><text x="50" y="60" text-anchor="middle">8</text></svg></div>
+      <div class="face f-9"><svg viewBox="0 0 100 86.6"><polygon points="50,0 0,86.6 100,86.6"/><text x="50" y="60" text-anchor="middle">9</text></svg></div>
+      <div class="face f-10"><svg viewBox="0 0 100 86.6"><polygon points="50,0 0,86.6 100,86.6"/><text x="50" y="60" text-anchor="middle">10</text></svg></div>
+      <div class="face f-11"><svg viewBox="0 0 100 86.6"><polygon points="50,0 0,86.6 100,86.6"/><text x="50" y="60" text-anchor="middle">11</text></svg></div>
+      <div class="face f-12"><svg viewBox="0 0 100 86.6"><polygon points="50,0 0,86.6 100,86.6"/><text x="50" y="60" text-anchor="middle">12</text></svg></div>
+      <div class="face f-13"><svg viewBox="0 0 100 86.6"><polygon points="50,0 0,86.6 100,86.6"/><text x="50" y="60" text-anchor="middle">13</text></svg></div>
+      <div class="face f-14"><svg viewBox="0 0 100 86.6"><polygon points="50,0 0,86.6 100,86.6"/><text x="50" y="60" text-anchor="middle">14</text></svg></div>
+      <div class="face f-15"><svg viewBox="0 0 100 86.6"><polygon points="50,0 0,86.6 100,86.6"/><text x="50" y="60" text-anchor="middle">15</text></svg></div>
+      <div class="face f-16"><svg viewBox="0 0 100 86.6"><polygon points="50,0 0,86.6 100,86.6"/><text x="50" y="60" text-anchor="middle">16</text></svg></div>
+      <div class="face f-17"><svg viewBox="0 0 100 86.6"><polygon points="50,0 0,86.6 100,86.6"/><text x="50" y="60" text-anchor="middle">17</text></svg></div>
+      <div class="face f-18"><svg viewBox="0 0 100 86.6"><polygon points="50,0 0,86.6 100,86.6"/><text x="50" y="60" text-anchor="middle">18</text></svg></div>
+      <div class="face f-19"><svg viewBox="0 0 100 86.6"><polygon points="50,0 0,86.6 100,86.6"/><text x="50" y="60" text-anchor="middle">19</text></svg></div>
+      <div class="face f-20"><svg viewBox="0 0 100 86.6"><polygon points="50,0 0,86.6 100,86.6"/><text x="50" y="60" text-anchor="middle">20</text></svg></div>
+    </div>
+  </div>
+
+  <div id="result" aria-live="polite">Clique em Rolar D20</div>
+
+  <button id="rollBtn" type="button">Rolar D20</button>
+
+  <script src="diceD20.js"></script>
+</body>
+</html>

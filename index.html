@@ -2,35 +2,126 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Roll a dice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Archibald "BlackDog" Whitefield | RPG Character</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="./css/index.css" type="text/css" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Roll a dice</h1>
+        <h1>Welcome to the Official Page of My RPG Character</h1>
+        <nav aria-label="Page sections">
+            <h2>Summary</h2>
+            <ul>
+                <li><a href="#info">Info</a></li>
+                <li><a href="#backStory">Backstory</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="./ficha.html">Character Sheet</a></li>
+                <li><a href="./dice.html"></a></li>
+            </ul>
+        </nav>
     </header>
-    <main>
-        <p id="diceResult"></p>
-        <div id="face">
-            <label for="d2">D2</label>
-            <input type="radio" id="faces" value="2" name="face">
-            <label for="d4">D4</label>
-            <input type="radio" id="faces" value="4" name="face">
-            <label for="d6">D6</label>
-            <input type="radio" id="faces" value="6" name="face">
-            <label for="d8">D8</label>
-            <input type="radio" id="faces" value="8" name="face">
-            <label for="d10">D10</label>
-            <input type="radio" id="faces" value="10" name="face">
-            <label for="d12">D12</label>
-            <input type="radio" id="faces" value="12" name="face">
-            <label for="d20">D20</label>
-            <input type="radio" id="faces" value="20" name="face" checked="checked">
-        </div>
-        <button onclick="roll()">roll</button>
+
+    <section class="top">
+        <aside id="gallery" aria-label="Gallery">
+            <h2>Gallery</h2>
+            <div class="carousel" tabindex="0">
+                <img src="./assets/hound_full_body.png" alt="Archibald, portrait">
+                <img src="./assets/hound_face.png" alt="Archibald, second image">
+                <img src="./assets/beast.png" alt="Archibald, third image">
+            </div>
+            <button class="arrow prev" type="button" aria-label="Previous image">&#8249;</button>
+            <button class="arrow next" type="button" aria-label="Next image">&#8250;</button>
+        </aside>
+        <article id="info">
+            <h2>Info</h2>
+            <dl>
+                <dt>Name</dt><dd>Archibald "BlackDog" Whitefield</dd>
+                <dt>Age</dt><dd>22</dd>
+                <dt>Height</dt><dd>1.78 m</dd>
+                <dt>Weight</dt><dd>65 kg</dd>
+                <dt>Hair</dt><dd>Medium length, grizzled</dd>
+                <dt>Eyes</dt><dd>Brown</dd>
+                <dt>Appearance</dt><dd>Dark circles, thin, tired look, always with perfect posture</dd>
+            </dl>
+        </article>
+    </section>
+
+    <h2 class="title">Backstory</h2>
+    <main id="backStory">
+        <p>
+            Archibald "BlackDog" Whitefield was a student at the royal Percival Voth University of
+            Arcane Studies. He was very skilled with herbs and alchemy, but always performed poorly
+            at conventional magic. He is the firstborn of Lady Isolde of Marrowgate, keeper of the
+            royal library, and the eldest child of the heir of House Whitefield, which takes its name
+            from its cotton fields. He had an ordinary childhood, hunting regularly with his father
+            and spending his days reading his mother's books. Unfortunately, his physical skills were
+            poor: not particularly strong or fast, though healthy. That did not please his father, who
+            wanted a hunter, a knight, a warrior. They used to call him the black sheep behind his back.
+            His true talent was in books. He was always interested in botany, potions and biology. While
+            hunting, he paid attention to the nature around him: poisonous plants, snakes, spiders,
+            birds, scorpions and insects. He learned how to kill and clean animals and how a body works,
+            and at home he read about biology, poisons, magic and alchemy.
+        </p>
+        <p>
+            When he came of age, he tried to win a seat in the royal university's classrooms, without
+            success: his talent for magic was poor, to say the least. His parents arranged a place in the
+            school of alchemy, which had less funding and fewer students, and that was perfect for him.
+            Time passed, and he graduated in alchemy, specializing in herbs and medicinal alchemy. In his
+            22nd year he joined his first expedition. The realm did not pay for the journey, so he set out
+            alone. On the road he met a Dahlan master, very good with herbs, from whom he learned a lot...
+            even things he didn't want to...
+        </p>
+        <p>
+            Later that year, something happened that would change his life forever...
+        </p>
+        <p>
+            He discovered that his master was studying curses to use on the village's enemies. When
+            confronted, the master tried to curse him to silence him, and a fight began. The curse was not
+            completed and, convinced that everything was fine, Archibald returned home and continued his
+            research. One day an accident happened in the lab: someone cut themselves. Without warning,
+            Archibald turned into a monster with sharp teeth and claws, attacked everyone and destroyed the
+            lab. After the incident, his former teacher, trying to save Archibald's life, let him go. But he
+            could never return home, or he would be killed as a black magic user.
+        </p>
+        <p>
+            He joined the Brotherhood after this, hiding his name. After each transformation his body
+            suffers severe pain and malnutrition, and his ankles hurt, so he needs a walking stick
+            afterwards. Some missions with the Brotherhood went wrong, and thanks to the curse he survived
+            them. Some began calling him "Black Cat", a bringer of bad luck, which reminded him of the time
+            they called him "black sheep". But given how thin his body is, he decided "BlackDog" was a more
+            fitting nickname.
+        </p>
     </main>
-<script src="script.js"></script>
+
+    <h2 class="title">Skills and Abilities</h2>
+    <section id="skills" class="skills">
+        <div class="box">
+            <h2>Abilities</h2>
+            <p>
+
+            </p>
+        </div>
+        <div class="box">
+            <h2>The Curse</h2>
+            <p>
+                Triggered by the sight of blood. In his cursed form Archibald is fast and
+                brutal, but he cannot tell friend from foe. Afterwards he is left weak,
+                starving and in pain, and needs his walking stick to move.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Archibald "BlackDog" Whitefield &mdash; a character made for tabletop RPG.</p>
+    </footer>
+    <script>
+        const carousel = document.querySelector(".carousel");
+        const slide = (dir) => carousel.scrollBy({ left: dir * carousel.clientWidth, behavior: "smooth" });
+        document.querySelector(".prev").addEventListener("click", () => slide(-1));
+        document.querySelector(".next").addEventListener("click", () => slide(1));
+    </script>
 </body>
 </html>
